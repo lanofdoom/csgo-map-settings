@@ -19,7 +19,7 @@ static void UpdateGameMode() {
   GetCurrentMap(map_name, PLATFORM_MAX_PATH);
 
   if (StrContains(map_name, "ar_") == 0) {
-    g_game_type.IntValue = 6;
+    g_game_type.IntValue = 1;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 10;
   } else if (StrContains(map_name, "dz_") == 0) {
