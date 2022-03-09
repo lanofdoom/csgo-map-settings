@@ -10,7 +10,11 @@ public const Plugin myinfo = {
     version = "1.0.0",
     url = "https://github.com/lanofdoom/csgo-map-settings"};
 
-public void OnMapStart() {
+//
+// Logic
+//
+
+static void UpdateGameMode() {
   char map_name[PLATFORM_MAX_PATH];
   GetCurrentMap(map_name, PLATFORM_MAX_PATH);
 
@@ -26,15 +30,24 @@ public void OnMapStart() {
     g_game_type.IntValue = 4;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 0;
-  } else {
+  } else if (strlen(map_name) != 0) {
     g_game_type.IntValue = 0;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 0;    
   }
 }
 
+//
+// Forwards
+//
+
+public void OnMapStart() {
+  UpdateGameMode();
+}
+
 public void OnPluginStart() {
   g_game_type = FindConVar("game_type");
   g_game_mode = FindConVar("game_mode");
   g_skirmish_id = FindConVar("sv_skirmish_id");
+  UpdateGameMode();
 }
