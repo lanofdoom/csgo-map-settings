@@ -7,7 +7,7 @@ ConVar g_skirmish_id;
 public const Plugin myinfo = {
     name = "Map Settings", author = "LAN of DOOM",
     description = "Sets map settings preferred by the LAN of DOOM",
-    version = "1.0.0",
+    version = "1.1.0",
     url = "https://github.com/lanofdoom/csgo-map-settings"};
 
 //
@@ -30,7 +30,7 @@ static void UpdateGameMode() {
     g_game_type.IntValue = 4;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 0;
-  } else if (StrEqual(map_name, "scoutzknivez")) {
+  } else if (StrContains(map_name, "scoutzknivez")) {
     g_game_type.IntValue = 0;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 3;
