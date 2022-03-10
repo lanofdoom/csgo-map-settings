@@ -30,7 +30,7 @@ static void UpdateGameMode() {
     g_game_type.IntValue = 4;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 0;
-  } else if (StrContains(map_name, "scoutzknivez")) {
+  } else if (StrContains(map_name, "scoutzknivez") != -1) {
     g_game_type.IntValue = 0;
     g_game_mode.IntValue = 0;
     g_skirmish_id.IntValue = 3;
